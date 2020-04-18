@@ -10,7 +10,7 @@ func _ready():
 	randomize()
 	green_rect = get_node("CanvasLayer/Panel/Bar/Green")
 	line = get_node("CanvasLayer/Panel/Bar/Line2D")
-	width = 128*(float(spot_percentage)/100)
+	width = 270*(float(spot_percentage)/100)
 	green_rect.set_size(Vector2(width, 20))
 	var pos_x = randi()%(128-int(width)+1)/2+32
 	print(pos_x)
@@ -21,7 +21,7 @@ func _ready():
 
 func _process(delta):
 	var x = line.points[0].x
-	if x > 125:
+	if x > 268:
 		x = -2
 	var y1 = line.points[0].y
 	var y2 = line.points[1].y
