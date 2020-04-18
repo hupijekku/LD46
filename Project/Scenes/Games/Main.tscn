@@ -127,6 +127,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button3" type="Button" parent="Game"]
+margin_left = 600.0
+margin_top = 200.0
+margin_right = 755.0
+margin_bottom = 255.0
+text = "Open Colors"
+
+[node name="Button4" type="Button" parent="Game"]
+margin_left = 600.0
+margin_top = 400.0
+margin_right = 755.0
+margin_bottom = 455.0
+text = "Open ColorText"
+
 [node name="Clock" parent="Game" instance=ExtResource( 4 )]
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -155,6 +169,8 @@ margin_bottom = 700.005
 rect_rotation = 2.75544
 [connection signal="pressed" from="Game/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Game/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Game/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Game/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="quit" from="GUI/MainMenu" to="." method="_on_MainMenu_quit"]
 [connection signal="start" from="GUI/MainMenu" to="." method="_on_MainMenu_start"]
 [connection signal="tutorial" from="GUI/MainMenu" to="." method="_on_MainMenu_tutorial"]

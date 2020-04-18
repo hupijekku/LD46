@@ -65,4 +65,5 @@ func on_btn_press(text, color, button):
 	
 	if len(buttons) == 0:
 		print("YOU WIN")
+		queue_free()
 	pass
