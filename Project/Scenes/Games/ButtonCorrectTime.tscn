@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ButtonCorrectTime.gd" type="Script" id=1]
+[ext_resource path="res://Themes/GameLabel.tres" type="Theme" id=2]
+[ext_resource path="res://Themes/ButtonDefault.tres" type="Theme" id=3]
+
+[node name="Control" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -186.0
+margin_top = -148.0
+margin_right = 186.0
+margin_bottom = 149.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel/MarginContainer"]
+margin_right = 372.0
+margin_bottom = 297.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/CenterContainer"]
+margin_left = 88.0
+margin_top = 118.0
+margin_right = 284.0
+margin_bottom = 178.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 196.0
+margin_bottom = 30.0
+theme = ExtResource( 2 )
+text = "Press the button"
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 196.0
+margin_bottom = 60.0
+theme = ExtResource( 3 )
+text = "Press me"
+
+[node name="Bar" type="Control" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 51.0
+margin_top = 200.0
+margin_right = -51.0
+margin_bottom = -77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Red" type="ColorRect" parent="CanvasLayer/Panel/Bar"]
+margin_right = 270.0
+margin_bottom = 20.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" type="ColorRect" parent="CanvasLayer/Panel/Bar"]
+margin_left = 4.0
+margin_right = 19.0
+margin_bottom = 20.0
+color = Color( 0, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer/Panel/Bar"]
+width = 2.0
+[connection signal="pressed" from="CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

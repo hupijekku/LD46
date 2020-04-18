@@ -45,6 +45,9 @@ margin_right = -119.0
 margin_bottom = -25.0
 theme = ExtResource( 3 )
 text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
