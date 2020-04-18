@@ -8,9 +8,8 @@ var correct_text = ""
 
 # Colors 
 var colors_str = ["green", "red", "blue", "yellow", "white", "fuchsia", "teal", "purple"]
-var colors = [Color.darkgreen, Color.red, Color.blue, Color.yellow, Color.white, Color.fuchsia, Color.teal, Color.purple]
+var colors = [Color.darkgreen, Color.red, Color.blue, Color.yellow, Color.white, Color.fuchsia, Color.teal, Color.darkviolet]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	i = randi()%3
@@ -48,19 +47,15 @@ func _ready():
 
 func on_btn_press(text, color, button):
 	var success = true
-	print(text + " : " + str(color))
-	print(correct_text + " : " + str(correct_color))
 	if correct_text != "" and correct_color != null:
 		if not text == correct_text and not color == correct_color:
 			print("You failed")
 			success = false
 	elif correct_text != "":
-		print("A")
 		if not text == correct_text:
 			print("You failed!")
 			success = false
 	elif correct_color != null:
-		print("B")
 		if not str(color) == str(correct_color):
 			print("You failed!")
 			success = false
