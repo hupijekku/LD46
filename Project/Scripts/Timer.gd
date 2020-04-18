@@ -2,33 +2,32 @@ extends Control
 
 signal timer_timeout
 
-var timer
-var time_left = 900
+var time_amount = 900
+var time = 0
+
+onready var label = get_node("Label")
+onready var timer = get_node("Timer")
 
 func _ready():
-	timer = get_node("Timer")
-	timer.set_wait_time(time_left)
-	pass
-
-func _process(delta):
-	var label = get_node("Label")
-	var time = timer.get_time_left()
-	if time == 0:
-		time = time_left
-	var minute = str(int(time/60))
-	var sec = int(time%60)
-	if sec < 10:
-		sec = str("0" + str(sec))
-	label.text = minute + ":" + sec
-	pass
-
-func set_time(time):
-	time_left = time
-	timer.set_wait_time(time_left)
+	set_label()
 	
 func start():
 	timer.start()
+	set_label()
+
+func set_label():
+	var time_left = time_amount - time
+	var minute = str(int(time_left/60))
+	var sec = int(fmod(time_left,60))
+	if sec < 10:
+		sec = str("0" + str(sec))
+	label.text = str(minute) + ":" + str(sec)
 	pass
 
 func _on_Timer_timeout():
-	emit_signal("timer_timeout")
+	timer.start()
+	time += 1
+	set_label()
+	if time == time_amount:
+		time = 0
+		emit_signal("timer_timeout")
