@@ -62,6 +62,8 @@ func on_btn_press(text, color, button):
 	if success:
 		buttons.erase(button)
 		button.queue_free()
+	else:
+		Globals.add_mistake()
 	
 	if len(buttons) == 0:
 		print("YOU WIN")

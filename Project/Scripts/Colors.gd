@@ -79,6 +79,7 @@ func _on_timeout():
 func _on_color_press(button):
 	if not answ[i] == button:
 		print("YOU FAILED")
+		Globals.add_mistake()
 		pass
 	else:
 		i += 1

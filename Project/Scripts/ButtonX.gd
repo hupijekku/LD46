@@ -15,3 +15,4 @@ func _on_Confirm_pressed():
 		queue_free()
 	else:
 		label.text = "You screwed up!"
+		Globals.add_mistake()
