@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Themes/GameLabel.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/ColorText.gd" type="Script" id=2]
+
+[node name="ColorText" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -256.0
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 512, 512 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel"]
+margin_left = 34.0
+margin_top = 100.0
+margin_right = 480.0
+margin_bottom = 486.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel/CenterContainer"]
+margin_left = 223.0
+margin_top = 193.0
+margin_right = 223.0
+margin_bottom = 193.0
+columns = 6
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 0.156
+margin_bottom = 0.127998
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Panel/CenterContainer2"]
+margin_right = 512.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 512, 80 )
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]Color Text[/center]"
+text = "
+Color Text"
