@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Themes/ButtonDefault.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/SpecialElite-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Message" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.33276
+margin_top = -1.16635
+margin_right = 2.33276
+margin_bottom = -1.16638
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -229.0
+margin_top = -278.0
+margin_right = 229.0
+margin_bottom = 278.0
+color = Color( 0.972549, 0.905882, 0.807843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 428.0
+margin_bottom = 526.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+text = "Mizusaki-kun,
+
+you have been bestowed with the honor of operating our brand new nuclear reactor, the
+NUKE-A-CHINK 1989 (patent pending).
+
+It is equipped with the most advanced state-of-the-art vocaloids and body pillows. It is, quite frankly, the finest piece of machinery on the face of this planet.
+
+To operate it, simply click on whatever gizmos you were taugh to at school. Please do so as quickly as possible to avoid a highly honorable nuclear meltdown.
+
+Be warned: as the power usage of the grid increases, so does the shitposting rate of foreigners. This will lead to an increase in war crimes you need to deny.
+
+Good luck.
+Colonel Yamayaki"
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Button" type="Button" parent="ColorRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -226.478
+margin_top = -78.9867
+margin_right = -30.478
+margin_bottom = -48.9867
+theme = ExtResource( 1 )
+text = "God Bless The Emperor!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
