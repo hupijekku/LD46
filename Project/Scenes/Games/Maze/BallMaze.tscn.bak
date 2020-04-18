@@ -8,6 +8,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 2 )
 
+<<<<<<< HEAD
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.17252
+=======
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 10.0
 rough = true
@@ -15,6 +19,7 @@ bounce = 0.1
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.29246
+>>>>>>> ec2e0f34119963a5b5976b3f541a4955c75f0e4b
 
 [node name="BallMaze" type="Node2D"]
 position = Vector2( 496, 408 )
@@ -44,5 +49,8 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+<<<<<<< HEAD
+=======
 position = Vector2( 0, 0.0437622 )
+>>>>>>> ec2e0f34119963a5b5976b3f541a4955c75f0e4b
 shape = SubResource( 2 )
