@@ -11,9 +11,10 @@ func _ready():
 func start_counting():
 	$Timer.start()
 	time = 0
+	$ClockText.text = "00:00"
 	
 func stop_counting():
-	$Timer.stop
+	$Timer.stop()
 	$Timer.wait_time = 1
 
 func _on_Timer_timeout():
