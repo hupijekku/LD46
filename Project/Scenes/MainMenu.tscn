@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Themes/GameLabel.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/MainMenuButton.tres" type="Theme" id=2]
 [ext_resource path="res://Fonts/FredokaOne-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://Icons/BIGGER/icons8-info-50.png" type="Texture" id=5]
+[ext_resource path="res://Icons/BIGGER/icons8-cancel-50.png" type="Texture" id=6]
+[ext_resource path="res://Icons/BIGGER/icons8-checked-50.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -54,7 +57,7 @@ size_flags_vertical = 3
 dragger_visibility = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer/HSplitContainer"]
-margin_right = 150.0
+margin_right = 229.0
 margin_bottom = 409.0
 size_flags_vertical = 3
 custom_constants/separation = 40
@@ -62,30 +65,39 @@ alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 margin_top = 74.0
-margin_right = 150.0
+margin_right = 229.0
 margin_bottom = 134.0
-rect_min_size = Vector2( 150, 60 )
+rect_min_size = Vector2( 200, 60 )
 theme = ExtResource( 2 )
 text = "START"
+icon = ExtResource( 7 )
+flat = true
+align = 0
 
 [node name="Tutorial" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 margin_top = 174.0
-margin_right = 150.0
+margin_right = 229.0
 margin_bottom = 234.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 2 )
 text = "TUTORIAL"
+icon = ExtResource( 5 )
+flat = true
+align = 0
 
 [node name="Quit" type="Button" parent="MarginContainer/HSplitContainer/VBoxContainer/HSplitContainer/VBoxContainer"]
 margin_top = 274.0
-margin_right = 150.0
+margin_right = 229.0
 margin_bottom = 334.0
 rect_min_size = Vector2( 0, 60 )
 theme = ExtResource( 2 )
 text = "QUIT"
+icon = ExtResource( 6 )
+flat = true
+align = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HSplitContainer/VBoxContainer/HSplitContainer"]
-margin_left = 150.0
+margin_left = 229.0
 margin_right = 495.0
 margin_bottom = 409.0
 

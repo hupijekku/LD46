@@ -8,6 +8,7 @@ var games = {
 	"ColorText": "res://Scenes/Games/ColorText.tscn",
 	"BallMaze": "res://Scenes/Games/Maze/BallMaze.tscn"}
 var main_path = "/root/Main/"
+var attemps = 1
 
 func add_mistake():
 	mistakes += 1

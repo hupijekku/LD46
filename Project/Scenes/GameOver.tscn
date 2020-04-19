@@ -2,13 +2,15 @@
 
 [ext_resource path="res://Themes/ScriptureButton.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/SpecialElite-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scripts/Message.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GameOver.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
+size = 48
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="Message" type="Control"]
@@ -41,16 +43,27 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 30
-custom_constants/margin_top = 30
+custom_constants/margin_top = 80
 custom_constants/margin_left = 30
 custom_constants/margin_bottom = 30
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TopText" type="Label" parent="ColorRect/MarginContainer"]
+margin_left = 30.0
+margin_top = 80.0
+margin_right = 428.0
+margin_bottom = 526.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+text = "GAME OVER"
+align = 1
+
 [node name="Message" type="Label" parent="ColorRect/MarginContainer"]
 margin_left = 30.0
-margin_top = 30.0
+margin_top = 80.0
 margin_right = 428.0
 margin_bottom = 526.0
 size_flags_vertical = 1
@@ -58,16 +71,15 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 text = "Mr. MacDonald,
 
-you have been assigned to operate our brand new nuclear reactor, the
-NUKE-A-TRON 2000%n (patent pending).
+your actions have caused the
+NUKE-A-TRON 2000%n
+to melt down, detonate, and kill everybody within a 100 mile radius.
 
-The NUKE-A-TRON is equipped with the most advanced state-of-the-art equipment and gizmos. It is, quite frankly, the finest piece of machinery on the face of the Earth.
+Thousands of innocent citizens have lost their lives due to your actions.
 
-To operate it, simply click on whatever that pops up and follow the provided instructions. Please do so as quickly as possible to avoid a highly probable nuclear meltdown.
+The CIA has already covered up the incident. We hope you do better at your next power plant, the
+NUKE-A-TRON 2000%m (patent pending).
 
-Be warned: as the power usage of the grid increases, so does the power output of the reactor. This will lead to an increase in the things you need to do.
-
-Good luck.
 Colonel Marshall"
 valign = 1
 autowrap = true
@@ -83,9 +95,7 @@ margin_top = -71.9886
 margin_right = -57.1511
 margin_bottom = -41.9886
 theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 2 )
 text = "God Bless America!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]
