@@ -9,18 +9,24 @@ func init_popup(time, game):
 	pass
 
 func _process(delta):
-	if $Bubble/Countdown.time_amount - $Bubble/Countdown.time <= 10:
+	var time_left = $Bubble/Countdown.time_amount - $Bubble/Countdown.time
+	if time_left <= 10:
 		$Bubble.texture_normal = $Bubble.texture_disabled
-	pass
 
 
 func _on_Bubble_pressed():
 	var game_load = load(Globals.games[sel_game])
 	var game_inst = game_load.instance()
 	get_node(Globals.main_path + "Game/").add_child(game_inst)
+	queue_free()
 
 
 func _ready():
 	$Bubble/Countdown.time_amount = countdown_time
 	$Bubble/Countdown.start()
 	
+
+
+func _on_Countdown_timer_timeout():
+	Globals.add_mistake()
+	queue_free()

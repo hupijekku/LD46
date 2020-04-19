@@ -14,6 +14,7 @@ func add_mistake():
 	if mistakes > 3:
 		# GAME OVER
 		print("GAME OVER")
+	get_node(main_path + "GUI/Mistakes/").text = "Mistakes: " + str(mistakes)
 
 func _ready():
 	pass
