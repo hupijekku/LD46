@@ -69,3 +69,8 @@ func _on_Button4_pressed():
 #	var colortext_inst = colortext_res.instance()
 #	add_child(colortext_inst)
 	pop_up("ColorText", $Game/Button4.rect_global_position)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "FadeToBlack":
+		pass

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=10 format=2]
+=======
 [gd_scene load_steps=11 format=2]
+>>>>>>> 02791f708642758b9a5f0caaabb36ebae23b7377
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
