@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=2]
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.490196, 0.490196, 0.490196, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -14,7 +14,7 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.764706 )
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 border_color = Color( 0.290196, 0.290196, 0.290196, 1 )
 corner_radius_top_left = 10
@@ -24,7 +24,7 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.764706 )
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.866667, 0.866667, 0.866667, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -37,7 +37,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.231373, 0.231373, 0.231373, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -57,8 +57,8 @@ Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 Button/constants/hseparation = 2
 Button/fonts/font = null
-Button/styles/disabled = SubResource( 4 )
-Button/styles/focus = SubResource( 3 )
-Button/styles/hover = SubResource( 1 )
-Button/styles/normal = SubResource( 2 )
+Button/styles/disabled = SubResource( 1 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = null

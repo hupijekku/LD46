@@ -32,6 +32,7 @@ func _on_Button2_pressed():
 func _on_MainMenu_start():
 	$GUI/MainMenu.hide()
 	$Game.show()
+	$Game/Clock.start_counting()
 
 
 func _on_america_blessed():
@@ -40,6 +41,16 @@ func _on_america_blessed():
 
 func _on_MainMenu_tutorial():
 	$GUI/AnimationPlayer.play("ShowNote")
+	
+
+func game_over():
+	$GUI/GameOver.play("ShowNote")
+	$Game/Clock.stop_counting()
+	
+func hide_gameover():
+	$GUI/GameOver.play("HideNote")
+	$GUI/MainMenu.show()
+	$Game.hide()
 
 
 func _on_MainMenu_quit():
