@@ -1,6 +1,7 @@
 extends Control
 
 signal timer_timeout
+signal mini_timeout
 
 var time_amount = 900
 var time = 0
@@ -25,6 +26,7 @@ func set_label():
 	pass
 
 func _on_Timer_timeout():
+	emit_signal("mini_timeout")
 	timer.start()
 	time += 1
 	set_label()
