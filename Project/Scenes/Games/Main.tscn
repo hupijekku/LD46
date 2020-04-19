@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PopUp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
+[ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -133,6 +135,149 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 700 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "HideNote"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOver/Shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.529412 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameOver/Shade:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 700 ) ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("GameOver/Message:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GameOver/Message:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -20, -0.25, 0, 0.25, 0, 700, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GameOver/Explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameOver/Explosion:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -800 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ShowNote"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameOver/Shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 6, 6.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.529412 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameOver/Shade:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 6, 6.1, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 700 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("GameOver/Message:rect_position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GameOver/Message:rect_position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 700, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 6, 6.5 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GameOver/Explosion:rect_position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -127 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameOver/Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -195,7 +340,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 700.0
 margin_bottom = 700.002
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,8 +353,22 @@ margin_bottom = 700.005
 rect_rotation = 2.75544
 
 [node name="GameOver" type="AnimationPlayer" parent="GUI"]
-anims/HideNote = SubResource( 2 )
-anims/ShowNote = SubResource( 1 )
+anims/HideNote = SubResource( 5 )
+anims/ShowNote = SubResource( 6 )
+
+[node name="Explosion" type="TextureRect" parent="GUI/GameOver"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -800.0
+margin_right = -0.00012207
+margin_bottom = -673.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shade" type="ColorRect" parent="GUI/GameOver"]
 anchor_right = 1.0
@@ -238,6 +397,14 @@ text = "Mistakes: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 8 )
+volume_db = 3.972
 [connection signal="pressed" from="Game/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Game/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Game/Button3" to="." method="_on_Button3_pressed"]

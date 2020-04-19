@@ -44,8 +44,12 @@ func _on_MainMenu_tutorial():
 	
 
 func game_over():
+	$GUI/GameOver/Message.update_text()
 	$GUI/GameOver.play("ShowNote")
+	$Audio/Explosion.play()
 	$Game/Clock.stop_counting()
+	Globals.mistakes = 0
+	Globals.attemps += 1
 	
 func hide_gameover():
 	$GUI/GameOver.play("HideNote")

@@ -68,17 +68,17 @@ margin_right = 428.0
 margin_bottom = 526.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+custom_colors/font_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 text = "Mr. MacDonald,
 
 your actions have caused the
-NUKE-A-TRON 2000%n
+NUKE-A-TRON 2000-0
 to melt down, detonate, and kill everybody within a 100 mile radius.
 
-Thousands of innocent citizens have lost their lives due to your actions.
+Thousands of innocent citizens have lost their lives due to your actions. Don't worry, the CIA has already covered up the incident.
 
-The CIA has already covered up the incident. We hope you do better at your next power plant, the
-NUKE-A-TRON 2000%m (patent pending).
+We hope you do better at your next plant, the
+NUKE-A-TRON 2000-1 (patent pending).
 
 Colonel Marshall"
 valign = 1

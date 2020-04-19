@@ -31,7 +31,7 @@ func _ready():
 
 func start(length):
 	answ = []
-	for i in range(length):
+	for _i in range(length):
 		var x = randi()%4
 		answ.append(x)
 	print(answ)
