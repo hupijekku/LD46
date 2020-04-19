@@ -173,11 +173,12 @@ margin_bottom = 700.005
 rect_rotation = 2.75544
 
 [node name="Mistakes" type="Label" parent="GUI"]
+visible = false
 margin_left = 398.947
 margin_top = 212.632
 margin_right = 451.947
 margin_bottom = 226.632
-text = "Errors: 0"
+text = "Mistakes: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }

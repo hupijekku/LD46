@@ -4,14 +4,20 @@ var prev_mousepos
 var moved
 export var sensitivity = 1000
 var positions = [Vector2(-18,-18), Vector2(18,-18), Vector2(-18,18), Vector2(18,10)]
+var ballpos
+var goalpos
+var should_reset = false
 
 func _ready():
 	rand_seed(OS.get_time().second)
-	var ballpos = randi() % 4
-	var goalpos = randi() % 4
+	randomize()
+	ballpos = randi() % 4
+	goalpos = randi() % 4
 	while ballpos == goalpos:
 		goalpos = randi() % 4
 	$BallMaze/Ball.position = positions[ballpos]*4
+	$BallMaze/Ball.positions = positions
+	$BallMaze/Ball.ballpos = ballpos
 	$BallMaze/Maze/Goal.position = positions[goalpos]
 	pass
 	
@@ -32,3 +38,23 @@ func _on_Ball_body_entered(body):
 
 func _on_Button_pressed():
 	queue_free()
+
+
+func _on_reset_pressed():
+	$BallMaze.rotation_degrees = 0
+	var timer = Timer.new()
+	timer.set_wait_time(0.1)
+	add_child(timer)
+	timer.connect("timeout", self, "_on_reset_timeout")
+	timer.set_one_shot(true)
+	timer.start()
+	yield(self, "reset_timer")
+	timer.stop()
+	$BallMaze/Ball.should_reset = true
+	$BallMaze/Maze/Goal.position = positions[goalpos]
+	pass # Replace with function body.
+
+signal reset_timer
+
+func _on_reset_timeout():
+	emit_signal("reset_timer")
