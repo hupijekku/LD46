@@ -1,10 +1,42 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PopUp.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeToBlack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeToGame"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "HideNote"
@@ -150,8 +182,12 @@ position = Vector2( 448.121, 372.595 )
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
+margin_left = 2.10522
+margin_right = 2.10522
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI"]
+anims/FadeToBlack = SubResource( 3 )
+anims/FadeToGame = SubResource( 4 )
 anims/HideNote = SubResource( 1 )
 anims/ShowNote = SubResource( 2 )
 
@@ -189,4 +225,5 @@ __meta__ = {
 [connection signal="quit" from="GUI/MainMenu" to="." method="_on_MainMenu_quit"]
 [connection signal="start" from="GUI/MainMenu" to="." method="_on_MainMenu_start"]
 [connection signal="tutorial" from="GUI/MainMenu" to="." method="_on_MainMenu_tutorial"]
+[connection signal="animation_finished" from="GUI/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="america_blessed" from="GUI/AnimationPlayer/Message" to="." method="_on_america_blessed"]
