@@ -29,7 +29,7 @@ func _ready():
 			correct_text = c_str
 			
 	var grid = get_node("CanvasLayer/Panel/CenterContainer/GridContainer")	
-	for i in range(48):
+	for _i in range(48):
 		var button = Button.new()
 		var text = colors_str[randi()%len(colors_str)]
 		var color = colors[randi()%len(colors)]

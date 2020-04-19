@@ -58,5 +58,4 @@ margin_bottom = 4.0
 anims/Bounce = SubResource( 1 )
 [connection signal="pressed" from="Bubble" to="." method="_on_Bubble_pressed"]
 [connection signal="mini_timeout" from="Bubble/Countdown" to="." method="_on_Countdown_mini_timeout"]
-[connection signal="ready" from="Bubble/Countdown" to="." method="_on_Countdown_ready"]
 [connection signal="timer_timeout" from="Bubble/Countdown" to="." method="_on_Countdown_timer_timeout"]
