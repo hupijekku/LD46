@@ -90,4 +90,8 @@ func _on_color_press(button):
 		c3.disabled = true
 		c4.disabled = true
 		queue_free()
+	c1.release_focus()
+	c2.release_focus()
+	c3.release_focus()
+	c4.release_focus()
 	pass
