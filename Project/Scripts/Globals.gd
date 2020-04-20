@@ -24,6 +24,8 @@ func add_mistake():
 		print("GAME OVER")
 		get_node(main_path).game_over()
 	get_node(main_path + "GUI/Mistakes/").text = "Mistakes: " + str(mistakes)
+	get_node(main_path + "Game/Lamps/").update_lamps(mistakes)
+	shake(0.5, 30, 8)
 
 func _ready():
 	load_game()

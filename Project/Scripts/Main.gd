@@ -87,7 +87,7 @@ func game_over():
 	$GUI/GameOver.play("ShowNote")
 	$Audio/Explosion.play()
 	$Game/Clock.stop_counting()
-	Globals.shake(1, 30, 16)
+	Globals.shake(2, 30, 30)
 	Globals.mistakes = 0
 	Globals.attemps += 1
 	if high_score_beaten:

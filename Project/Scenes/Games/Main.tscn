@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/lights/lights2.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/lamp/lamp1.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/lamp/lamp2.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/Lamps.gd" type="Script" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -324,10 +325,11 @@ position = Vector2( 388.537, 149.437 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game"]
 position = Vector2( 339.311, 453.587 )
 frames = SubResource( 1 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Lamps" type="Node2D" parent="Game"]
+script = ExtResource( 18 )
 
 [node name="Lamp1" type="AnimatedSprite" parent="Game/Lamps"]
 position = Vector2( 673.317, 59.4484 )
@@ -345,7 +347,6 @@ frames = SubResource( 2 )
 animation = "Off"
 
 [node name="Button" type="Button" parent="Game"]
-visible = false
 margin_left = 780.0
 margin_top = 262.0
 margin_right = 935.0
@@ -356,7 +357,6 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="Game"]
-visible = false
 margin_left = 774.0
 margin_top = 368.0
 margin_right = 929.0
@@ -367,7 +367,6 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="Game"]
-visible = false
 margin_left = 600.0
 margin_top = 200.0
 margin_right = 755.0
@@ -375,7 +374,6 @@ margin_bottom = 255.0
 text = "Open Colors"
 
 [node name="Button4" type="Button" parent="Game"]
-visible = false
 margin_left = 600.0
 margin_top = 400.0
 margin_right = 755.0
