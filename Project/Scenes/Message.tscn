@@ -59,7 +59,7 @@ custom_colors/font_color = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 text = "Mr. MacDonald,
 
 you have been assigned to operate our brand new nuclear reactor, the
-NUKE-A-TRON 2000%n (patent pending).
+NUKE-A-TRON 2000-%n (patent pending).
 
 The NUKE-A-TRON is equipped with the most advanced state-of-the-art equipment and gizmos. It is, quite frankly, the finest piece of machinery on the face of the Earth.
 

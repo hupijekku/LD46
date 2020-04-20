@@ -41,15 +41,22 @@ func _on_america_blessed():
 
 func _on_MainMenu_tutorial():
 	$GUI/AnimationPlayer.play("ShowNote")
+	$GUI/AnimationPlayer/Message.update_text()
 	
 
 func game_over():
-	$GUI/GameOver/Message.update_text()
+	var time = $Game/Clock/.time
+	var high_score_beaten = time > Globals.high_score
+	$GUI/GameOver/Message.update_text(time, high_score_beaten)
 	$GUI/GameOver.play("ShowNote")
 	$Audio/Explosion.play()
 	$Game/Clock.stop_counting()
+	Globals.shake(1, 30, 16)
 	Globals.mistakes = 0
 	Globals.attemps += 1
+	if high_score_beaten:
+		Globals.high_score = time
+	Globals.save_game()
 	
 func hide_gameover():
 	$GUI/GameOver.play("HideNote")
