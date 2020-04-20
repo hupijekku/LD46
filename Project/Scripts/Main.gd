@@ -10,7 +10,7 @@ var circle_res = preload("res://Scenes/Games/Circle.tscn")
 var math_res = preload("res://Scenes/Games/Math.tscn")
 
 var default_time = 30
-var time_to_popup = 900
+var time_to_popup = 600
 
 var do_popup = false
 var tick = 0
