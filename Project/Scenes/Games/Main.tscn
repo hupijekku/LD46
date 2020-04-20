@@ -325,7 +325,7 @@ position = Vector2( 388.537, 149.437 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game"]
 position = Vector2( 339.311, 453.587 )
 frames = SubResource( 1 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Lamps" type="Node2D" parent="Game"]
