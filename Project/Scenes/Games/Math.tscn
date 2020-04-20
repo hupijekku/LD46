@@ -80,14 +80,14 @@ __meta__ = {
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
 margin_right = 136.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 
 [node name="Button2" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
 margin_left = 141.0
 margin_right = 277.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 __meta__ = {
@@ -97,7 +97,7 @@ __meta__ = {
 [node name="Button3" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
 margin_left = 282.0
 margin_right = 420.0
-margin_bottom = 99.0
+margin_bottom = 100.0
 size_flags_horizontal = 3
 theme = ExtResource( 5 )
 __meta__ = {
