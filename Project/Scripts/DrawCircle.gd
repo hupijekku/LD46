@@ -20,7 +20,7 @@ func _draw():
 	if not drawit:
 		return
 	tick += 1
-	if tick % 60 == 0:
+	if tick % 15 == 0:
 		radius -= 1
 		if radius == 25:
 			print("You Won!")
@@ -37,9 +37,9 @@ func _draw():
 	x += dx
 	y += dy
 	if x > 512-radius-10 or x < 0+radius+10:
-		dx = dx * (-1)
+		dx = dx * (-2)
 	if y > 432-radius-10 or y < 0+radius+10:
-		dy = dy * (-1)
+		dy = dy * (-2)
 	var points = PoolVector2Array()
 	points.push_back(Vector2(x-radius, y))
 	points.push_back(Vector2(x+radius, y))

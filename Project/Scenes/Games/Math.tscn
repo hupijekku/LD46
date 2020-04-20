@@ -1,0 +1,128 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Themes/Note.tres" type="Theme" id=1]
+[ext_resource path="res://Themes/GameLabel.tres" type="Theme" id=2]
+[ext_resource path="res://Scripts/Math.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/SpecialElite-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Themes/MetalPanel.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+
+[node name="Math" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = -150.0
+margin_right = 208.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 240, 150 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = -16.8007
+margin_top = -24.5296
+margin_right = 495.199
+margin_bottom = 45.4704
+rect_rotation = 2.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Panel"]
+margin_left = 38.4933
+margin_top = 25.2224
+margin_right = 467.493
+margin_bottom = 50.2224
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Find the X"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+margin_left = 30.0
+margin_top = 180.0
+margin_right = 450.0
+margin_bottom = 280.0
+custom_constants/separation = 5
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
+margin_right = 136.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+
+[node name="Button2" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
+margin_left = 141.0
+margin_right = 277.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="CanvasLayer/Panel/HBoxContainer"]
+margin_left = 282.0
+margin_right = 420.0
+margin_bottom = 99.0
+size_flags_horizontal = 3
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Panel"]
+margin_left = 30.0
+margin_top = 80.0
+margin_right = 450.0
+margin_bottom = 160.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Panel/Panel2"]
+margin_right = 420.0
+margin_bottom = 80.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Panel2/CenterContainer"]
+margin_left = 110.0
+margin_top = 24.0
+margin_right = 309.0
+margin_bottom = 55.0
+theme = SubResource( 2 )
+text = "32 + x = 6 - x"

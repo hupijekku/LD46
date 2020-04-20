@@ -34,21 +34,21 @@ margin_right = 372.0
 margin_bottom = 297.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/CenterContainer"]
-margin_left = 88.0
-margin_top = 118.0
-margin_right = 284.0
-margin_bottom = 178.0
+margin_left = 86.0
+margin_top = 121.0
+margin_right = 286.0
+margin_bottom = 176.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_right = 196.0
-margin_bottom = 30.0
+margin_right = 200.0
+margin_bottom = 25.0
 theme = ExtResource( 2 )
 text = "Press the button"
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 196.0
-margin_bottom = 60.0
+margin_top = 29.0
+margin_right = 200.0
+margin_bottom = 55.0
 theme = ExtResource( 3 )
 text = "Press me"
 
