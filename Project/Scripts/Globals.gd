@@ -6,7 +6,9 @@ var games = {
 	"ButtonX": "res://Scenes/Games/ButtonX.tscn",
 	"Colors": "res://Scenes/Games/Colors.tscn",
 	"ColorText": "res://Scenes/Games/ColorText.tscn",
-	"BallMaze": "res://Scenes/Games/Maze/BallMaze.tscn"}
+	"BallMaze": "res://Scenes/Games/Maze/BallMaze.tscn",
+	"Math": "res://Scenes/Games/Math.tscn",
+	"Circle": "res://Scenes/Games/Circle.tscn"}
 var main_path = "/root/Main/"
 var attemps = 1
 var high_score = 0

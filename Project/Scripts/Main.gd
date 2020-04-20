@@ -1,27 +1,55 @@
 extends Node2D
 
 var buttonX_res = preload("res://Scenes/Games/ButtonX.tscn")
+var buttonC_res = preload("res://Scenes/Games/ButtonCorrectTime.tscn")
 var ballmaze_res = preload("res://Scenes/Games/Maze/BallMaze.tscn")
 var color_res = preload("res://Scenes/Games/Colors.tscn")
 var colortext_res = preload("res://Scenes/Games/ColorText.tscn")
 var popup_res = preload("res://Scenes/PopUp.tscn")
+var circle_res = preload("res://Scenes/Games/Circle.tscn")
+var math_res = preload("res://Scenes/Games/Math.tscn")
 
 var default_time = 30
+var time_to_popup = 900
+
+var do_popup = false
+var tick = 0
+
+func _ready():
+	randomize()
+	
+func _process(delta):
+	if do_popup:
+		tick = 0
+		do_popup = false
+		match randi()%7:
+			0:
+				pop_up("ButtonX", Vector2(920, 470))
+			1:
+				pop_up("Timing", Vector2(150, 100))
+			2:
+				pop_up("BallMaze", Vector2(835, 190))
+			3:
+				pop_up("Colors", Vector2(255, 280))
+			4:
+				pop_up("ColorText", Vector2(115, 450))
+			5:
+				pop_up("Circle", Vector2(780, 500))
+			6:
+				pop_up("Math", Vector2(545, 515))
+	else:
+		tick += 1
+		if tick % time_to_popup == 0:
+			do_popup = true
+			time_to_popup = int(time_to_popup * 0.98)
+
 
 func pop_up(game, pos):
 	var popup_inst = popup_res.instance()
 	$GUI/MGs.add_child(popup_inst)
 	popup_inst.init_popup(default_time, game)
 	popup_inst.position = pos
-
-func random_pop_up():
-	var random_mg = Globals.games[randi()%Globals.games.size()]
-	var duplicate = true
-	while(duplicate):
-		duplicate = false
-		for pop in $GUI/MGs.get_children():
-			if pop.sel_game == random_mg: duplicate = true
-		if duplicate: random_mg = Globals.games[randi()%Globals.games.size()]
+	
 
 func _on_Button_pressed():
 #	var buttonX_inst = buttonX_res.instance()

@@ -83,6 +83,7 @@ func _on_color_press(button):
 	if not answ[i] == button:
 		print("YOU FAILED")
 		Globals.add_mistake()
+		queue_free()
 		pass
 	else:
 		i += 1
