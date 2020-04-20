@@ -26,6 +26,8 @@ func _ready():
 	c3.disabled = true
 	c4.disabled = true
 	start(6)
+	
+	$CanvasLayer/Note.set_rotation(deg2rad(rand_range(-3, 3)))
 	pass
 
 
@@ -67,6 +69,7 @@ func start(length):
 		
 		yield(self, "color_timeout")
 	timer.stop()
+	$CanvasLayer/ClickBlock.queue_free()
 	c1.disabled = false
 	c2.disabled = false
 	c3.disabled = false
