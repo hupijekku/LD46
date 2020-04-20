@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
@@ -6,9 +6,41 @@
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/PopUp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
+[ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Scripts/Shake.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/console.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/lights/lights5.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/lights/lights1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/lights/lights3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/lights/lights4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/lights/lights2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/lamp/lamp1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/lamp/lamp2.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/Lamps.gd" type="Script" id=18]
 
-[sub_resource type="Animation" id=1]
-resource_name = "FadeToBlack"
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.7
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "On",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Off",
+"speed": 1.0
+} ]
+
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Shade:color")
@@ -23,8 +55,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "FadeToGame"
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Shade:color")
@@ -39,7 +70,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("AnimationPlayer/Message:rect_position:x")
@@ -86,7 +117,7 @@ tracks/3/keys = {
 "values": [ Vector2( -2.38419e-07, 1.90735e-06 ), Vector2( -2.38419e-07, 1.90735e-06 ), Vector2( 0, 5000 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("AnimationPlayer/Message:rect_position:x")
@@ -133,10 +164,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 700 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-<<<<<<< HEAD
-=======
-[sub_resource type="Animation" id=5]
-resource_name = "HideNote"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("GameOver/Shade:color")
 tracks/0/interp = 1
@@ -181,10 +209,33 @@ tracks/3/keys = {
 "points": PoolRealArray( -20, -0.25, 0, 0.25, 0, 700, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.5 )
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("GameOver/Explosion:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameOver/Explosion:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -800 ) ]
+}
 
-[sub_resource type="Animation" id=6]
-resource_name = "ShowNote"
-length = 0.5
+[sub_resource type="Animation" id=8]
+length = 6.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("GameOver/Shade:color")
 tracks/0/interp = 1
@@ -192,7 +243,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 6, 6.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.529412 ) ]
@@ -204,7 +255,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5 ),
+"times": PoolRealArray( 6, 6.1, 6.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 700 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
@@ -227,17 +278,79 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "points": PoolRealArray( 700, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.5 )
+"times": PoolRealArray( 6, 6.5 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GameOver/Explosion:rect_position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -127 ), Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GameOver/Explosion:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
->>>>>>> 32f861f1ce46ae76bc298d24beada0daa194c3d3
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Game" type="Node2D" parent="."]
 visible = false
 
+[node name="TextureRect" type="TextureRect" parent="Game"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clock" parent="Game" instance=ExtResource( 4 )]
+position = Vector2( 388.537, 149.437 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Game"]
+position = Vector2( 339.311, 453.587 )
+frames = SubResource( 1 )
+<<<<<<< HEAD
+frame = 1
+=======
+>>>>>>> 1ad605912db6ed07df2c3cadf205de584aaf7a98
+playing = true
+
+[node name="Lamps" type="Node2D" parent="Game"]
+script = ExtResource( 18 )
+
+[node name="Lamp1" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 673.317, 59.4484 )
+frames = SubResource( 2 )
+animation = "Off"
+
+[node name="Lamp2" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 757.321, 59.4484 )
+frames = SubResource( 2 )
+animation = "Off"
+
+[node name="Lamp3" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 842.616, 59.4484 )
+frames = SubResource( 2 )
+animation = "Off"
+
 [node name="Button" type="Button" parent="Game"]
+visible = false
 margin_left = 780.0
 margin_top = 262.0
 margin_right = 935.0
@@ -248,6 +361,7 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="Game"]
+visible = false
 margin_left = 774.0
 margin_top = 368.0
 margin_right = 929.0
@@ -258,6 +372,7 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="Game"]
+visible = false
 margin_left = 600.0
 margin_top = 200.0
 margin_right = 755.0
@@ -265,35 +380,36 @@ margin_bottom = 255.0
 text = "Open Colors"
 
 [node name="Button4" type="Button" parent="Game"]
+visible = false
 margin_left = 600.0
 margin_top = 400.0
 margin_right = 755.0
 margin_bottom = 455.0
 text = "Open ColorText"
 
-[node name="Clock" parent="Game" instance=ExtResource( 4 )]
-
 [node name="PopUp" parent="Game" instance=ExtResource( 5 )]
-position = Vector2( 448.121, 372.595 )
+position = Vector2( 832.684, 193.05 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="MGs" type="Node" parent="GUI"]
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
 margin_left = 2.10522
 margin_right = 2.10522
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI"]
-anims/FadeToBlack = SubResource( 1 )
-anims/FadeToGame = SubResource( 2 )
-anims/HideNote = SubResource( 3 )
-anims/ShowNote = SubResource( 4 )
+anims/FadeToBlack = SubResource( 3 )
+anims/FadeToGame = SubResource( 4 )
+anims/HideNote = SubResource( 5 )
+anims/ShowNote = SubResource( 6 )
 
 [node name="Shade" type="ColorRect" parent="GUI/AnimationPlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 700.0
 margin_bottom = 700.002
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -306,13 +422,22 @@ margin_bottom = 700.005
 rect_rotation = 2.75544
 
 [node name="GameOver" type="AnimationPlayer" parent="GUI"]
-<<<<<<< HEAD
-anims/HideNote = SubResource( 2 )
-anims/ShowNote = SubResource( 1 )
-=======
-anims/HideNote = SubResource( 5 )
-anims/ShowNote = SubResource( 6 )
->>>>>>> 32f861f1ce46ae76bc298d24beada0daa194c3d3
+anims/HideNote = SubResource( 7 )
+anims/ShowNote = SubResource( 8 )
+
+[node name="Explosion" type="TextureRect" parent="GUI/GameOver"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -800.0
+margin_right = -0.00012207
+margin_bottom = -673.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Shade" type="ColorRect" parent="GUI/GameOver"]
 anchor_right = 1.0
@@ -341,6 +466,17 @@ text = "Mistakes: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 9 )
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 8 )
+volume_db = 3.972
 [connection signal="pressed" from="Game/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Game/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Game/Button3" to="." method="_on_Button3_pressed"]
