@@ -10,10 +10,18 @@ var default_time = 30
 
 func pop_up(game, pos):
 	var popup_inst = popup_res.instance()
-	add_child(popup_inst)
+	$GUI/MGs.add_child(popup_inst)
 	popup_inst.init_popup(default_time, game)
 	popup_inst.position = pos
 
+func random_pop_up():
+	var random_mg = Globals.games[randi()%Globals.games.size()]
+	var duplicate = true
+	while(duplicate):
+		duplicate = false
+		for pop in $GUI/MGs.get_children():
+			if pop.sel_game == random_mg: duplicate = true
+		if duplicate: random_mg = Globals.games[randi()%Globals.games.size()]
 
 func _on_Button_pressed():
 #	var buttonX_inst = buttonX_res.instance()

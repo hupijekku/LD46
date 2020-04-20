@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
@@ -9,6 +9,35 @@
 [ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
 [ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Games/Shake.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/console.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/lights/lights5.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/lights/lights1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/lights/lights3.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/lights/lights4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/lights/lights2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/lamp/lamp1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/lamp/lamp2.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.7
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Off",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "On",
+"speed": 0.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -283,7 +312,40 @@ tracks/5/keys = {
 script = ExtResource( 1 )
 
 [node name="Game" type="Node2D" parent="."]
-visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Game"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clock" parent="Game" instance=ExtResource( 4 )]
+position = Vector2( 388.537, 149.437 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Game"]
+position = Vector2( 339.311, 453.587 )
+frames = SubResource( 7 )
+frame = 4
+playing = true
+
+[node name="Lamps" type="Node2D" parent="Game"]
+
+[node name="Lamp1" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 673.317, 59.4484 )
+frames = SubResource( 8 )
+animation = "Off"
+
+[node name="Lamp2" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 757.321, 59.4484 )
+frames = SubResource( 8 )
+animation = "Off"
+
+[node name="Lamp3" type="AnimatedSprite" parent="Game/Lamps"]
+position = Vector2( 842.616, 59.4484 )
+frames = SubResource( 8 )
+animation = "Off"
 
 [node name="Button" type="Button" parent="Game"]
 margin_left = 780.0
@@ -319,12 +381,12 @@ margin_right = 755.0
 margin_bottom = 455.0
 text = "Open ColorText"
 
-[node name="Clock" parent="Game" instance=ExtResource( 4 )]
-
 [node name="PopUp" parent="Game" instance=ExtResource( 5 )]
-position = Vector2( 448.121, 372.595 )
+position = Vector2( 832.684, 193.05 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="MGs" type="Node" parent="GUI"]
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
 margin_left = 2.10522
