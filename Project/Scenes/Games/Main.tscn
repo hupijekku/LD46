@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/PopUp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
 [ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
@@ -384,10 +383,18 @@ margin_right = 755.0
 margin_bottom = 455.0
 text = "Open ColorText"
 
-[node name="PopUp" parent="Game" instance=ExtResource( 5 )]
-position = Vector2( 832.684, 193.05 )
-
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PopUps" type="Node" parent="GUI"]
+
+[node name="MGShade" type="ColorRect" parent="GUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.411765 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MGs" type="Node" parent="GUI"]
 

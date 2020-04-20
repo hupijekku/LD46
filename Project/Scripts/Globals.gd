@@ -54,3 +54,6 @@ func load_game():
 	high_score = save_stuff.attemps
 	save_file.close()
 	print("Game loaded")
+
+func show_shade(): get_node(main_path + "GUI/MGShade/").show()
+func hide_shade(): get_node(main_path + "GUI/MGShade/").hide()

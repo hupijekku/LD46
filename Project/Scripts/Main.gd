@@ -46,7 +46,7 @@ func _process(delta):
 
 func pop_up(game, pos):
 	var popup_inst = popup_res.instance()
-	$GUI/MGs.add_child(popup_inst)
+	$GUI/PopUps.add_child(popup_inst)
 	popup_inst.init_popup(default_time, game)
 	popup_inst.position = pos
 	

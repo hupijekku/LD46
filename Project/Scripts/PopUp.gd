@@ -18,7 +18,8 @@ func _process(delta):
 func _on_Bubble_pressed():
 	var game_load = load(Globals.games[sel_game])
 	var game_inst = game_load.instance()
-	get_node(Globals.main_path + "Game/").add_child(game_inst)
+	get_node(Globals.main_path + "GUI/MGs/").add_child(game_inst)
+	Globals.show_shade()
 	queue_free()
 
 
