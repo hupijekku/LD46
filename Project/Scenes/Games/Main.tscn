@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/PopUp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
 [ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
@@ -29,14 +28,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "On",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "Off",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "On",
 "speed": 1.0
 } ]
 
@@ -383,9 +382,6 @@ margin_top = 400.0
 margin_right = 755.0
 margin_bottom = 455.0
 text = "Open ColorText"
-
-[node name="PopUp" parent="Game" instance=ExtResource( 5 )]
-position = Vector2( 832.684, 193.05 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

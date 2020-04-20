@@ -2,6 +2,7 @@ extends Node2D
 
 var sel_game = "BallMaze" #Just for debug haha
 var countdown_time = 30
+var num = 0
 
 func init_popup(time, game):
 	countdown_time = time
@@ -19,6 +20,7 @@ func _on_Bubble_pressed():
 	var game_load = load(Globals.games[sel_game])
 	var game_inst = game_load.instance()
 	get_node(Globals.main_path + "Game/").add_child(game_inst)
+	get_node(Globals.main_path).available_games.append(num)
 	queue_free()
 
 

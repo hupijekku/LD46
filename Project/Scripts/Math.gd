@@ -39,15 +39,25 @@ func _ready():
 			a1 = answ
 			a2 = randi()%int(answ+5)*2
 			a3 = randi()%int(answ+5)*2
+			while a3 == answ or a2 == answ:
+				a3 = randi()%int(answ+5)*2
+				a2 = randi()%int(answ+5)*2
 		1:
 			a1 = randi()%int(answ+5)*2
 			a2 = answ
 			a3 = randi()%int(answ+5)*2
+			while a1 == answ or a3 == answ:
+				a1 = randi()%int(answ+5)*2
+				a3 = randi()%int(answ+5)*2
 		2:
 			a1 = stepify(randf()*answ+1,0.1)
 			a2 = randi()%int(answ+5)*2
 			a3 = answ
+			while a1 == answ or a2 == answ:
+				a1 = randi()%int(answ+5)*2
+				a2 = randi()%int(answ+5)*2
 	
+
 	$CanvasLayer/Panel/HBoxContainer/Button.text = str(a1)
 	$CanvasLayer/Panel/HBoxContainer/Button2.text = str(a2)
 	$CanvasLayer/Panel/HBoxContainer/Button3.text = str(a3)
