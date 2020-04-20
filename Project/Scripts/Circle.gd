@@ -3,7 +3,7 @@ extends Node2D
 var game_on = false
 
 func _ready():
-	
+	$CanvasLayer/Panel/Note.set_rotation(deg2rad(rand_range(-3, 3)))
 	
 	
 	pass
