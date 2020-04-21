@@ -23,7 +23,8 @@ func _draw():
 	if tick % 15 == 0:
 		radius -= 1
 		if radius == 25:
-			print("You Won!")
+			Globals.hide_shade()
+			get_node(Globals.main_path + "/Audio/Success").play()
 			owner.queue_free()
 		pass
 	if tick % 270 == 0:
@@ -54,5 +55,8 @@ func _draw():
 	
 	var dist = sqrt(pow(mouse_x-x, 2) + pow(mouse_y-y, 2))
 	if dist > radius+5:
-		print(dist)
+		Globals.add_mistake()
+		Globals.hide_shade()
+		get_node(Globals.main_path + "/Audio/Failure").play()
+		owner.queue_free()
 	

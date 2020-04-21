@@ -64,9 +64,13 @@ func on_btn_press(text, color, button):
 		button.queue_free()
 	else:
 		Globals.add_mistake()
+		get_node(Globals.main_path + "/Audio/Failure").play()
+		Globals.hide_shade()
 		queue_free()
 	
 	if len(buttons) == 0:
 		print("YOU WIN")
+		get_node(Globals.main_path + "/Audio/Success").play()
+		Globals.hide_shade()
 		queue_free()
 	pass

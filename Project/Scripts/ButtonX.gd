@@ -13,5 +13,10 @@ func _on_Button_pressed():
 	presses += 1
 
 func _on_Confirm_pressed():
-	if presses != maxpresses: Globals.add_mistake()
+	if presses != maxpresses: 
+		Globals.add_mistake()
+		get_node(Globals.main_path + "/Audio/Failure").play()
+	else: 
+		get_node(Globals.main_path + "/Audio/Success").play()
+	Globals.hide_shade()
 	queue_free()

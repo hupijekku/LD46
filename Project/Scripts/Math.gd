@@ -70,9 +70,11 @@ func _ready():
 func _on_Button_pressed(a):
 	if str(a) == str(answ):
 		$CanvasLayer/Panel/Panel/Label.text = "CORRECT"
+		get_node(Globals.main_path + "/Audio/Success").play()
 	else:
 		$CanvasLayer/Panel/Panel/Label.text = "WRONG"
 		Globals.add_mistake()
+		get_node(Globals.main_path + "/Audio/Failure").play()
 	
 	var timer = Timer.new()
 	timer.set_one_shot(true)
@@ -81,6 +83,7 @@ func _on_Button_pressed(a):
 	timer.connect("timeout", self, "_on_timeout")
 	timer.start()
 	yield(self, "timexd")
+	Globals.hide_shade()
 	queue_free()
 	pass # Replace with function body.
 	

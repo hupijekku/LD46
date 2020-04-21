@@ -37,9 +37,11 @@ func _on_Button_pressed():
 	var green_pos = green_rect.rect_position.x
 	if curr_pos > green_pos and curr_pos < green_pos+width:
 		get_node("CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer/Label").text = "You did it!"
+		get_node(Globals.main_path + "/Audio/Success").play()
 	else:
 		get_node("CanvasLayer/Panel/MarginContainer/CenterContainer/VBoxContainer/Label").text = "You failed!"
 		Globals.add_mistake()
+		get_node(Globals.main_path + "/Audio/Failure").play()
 		
 	var timer = Timer.new()
 	timer.set_one_shot(true)
@@ -48,6 +50,7 @@ func _on_Button_pressed():
 	timer.connect("timeout", self, "on_buttonc")
 	timer.start()
 	yield(self, "yeet")
+	Globals.hide_shade()
 	queue_free()
 	
 func on_buttonc():

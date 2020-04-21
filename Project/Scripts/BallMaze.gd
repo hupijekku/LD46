@@ -37,6 +37,8 @@ func _on_Ball_body_entered(body):
 
 
 func _on_Button_pressed():
+	get_node(Globals.main_path + "/Audio/Success").play()
+	Globals.hide_shade()
 	queue_free()
 
 

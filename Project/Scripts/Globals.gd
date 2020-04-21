@@ -51,9 +51,9 @@ func load_game():
 	save_file.open("user://savegame.save", File.READ)
 	save_stuff = parse_json(save_file.get_line())
 	attemps = save_stuff.attemps
-	high_score = save_stuff.attemps
+	high_score = save_stuff.highscore
 	save_file.close()
 	print("Game loaded")
 
-func show_shade(): get_node(main_path + "GUI/MGShade/").show()
-func hide_shade(): get_node(main_path + "GUI/MGShade/").hide()
+func show_shade(): get_node(main_path + "GUI/Shade/MGShade/").show()
+func hide_shade(): get_node(main_path + "GUI/Shade/MGShade/").hide()

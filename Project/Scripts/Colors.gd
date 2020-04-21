@@ -83,6 +83,8 @@ func _on_color_press(button):
 	if not answ[i] == button:
 		print("YOU FAILED")
 		Globals.add_mistake()
+		Globals.hide_shade()
+		get_node(Globals.main_path + "/Audio/Failure").play()
 		queue_free()
 		pass
 	else:
@@ -93,6 +95,8 @@ func _on_color_press(button):
 		c2.disabled = true
 		c3.disabled = true
 		c4.disabled = true
+		Globals.hide_shade()
+		get_node(Globals.main_path + "/Audio/Success").play()
 		queue_free()
 	c1.release_focus()
 	c2.release_focus()

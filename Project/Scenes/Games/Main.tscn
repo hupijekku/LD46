@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Message.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/loop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/boom.png" type="Texture" id=7]
 [ext_resource path="res://Audio/explosion.ogg" type="AudioStream" id=8]
@@ -17,6 +18,7 @@
 [ext_resource path="res://Sprites/lamp/lamp1.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/lamp/lamp2.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/Lamps.gd" type="Script" id=18]
+[ext_resource path="res://Audio/success.ogg" type="AudioStream" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -324,7 +326,7 @@ position = Vector2( 388.537, 149.437 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game"]
 position = Vector2( 339.311, 453.587 )
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Lamps" type="Node2D" parent="Game"]
@@ -385,10 +387,12 @@ text = "Open ColorText"
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="PopUps" type="Node" parent="GUI"]
+[node name="Shade" type="CanvasLayer" parent="GUI"]
+layer = 0
 
-[node name="MGShade" type="ColorRect" parent="GUI"]
+[node name="MGShade" type="ColorRect" parent="GUI/Shade"]
 visible = false
+light_mask = 4
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.411765 )
@@ -396,7 +400,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MGs" type="Node" parent="GUI"]
+[node name="Games" type="CanvasLayer" parent="GUI"]
+layer = 3
+
+[node name="MGs" type="Node" parent="GUI/Games"]
+
+[node name="Pops" type="CanvasLayer" parent="GUI"]
+layer = 2
+
+[node name="PopUps" type="Node" parent="GUI/Pops"]
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 2 )]
 margin_left = 2.10522
@@ -413,7 +425,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 700.0
 margin_bottom = 700.002
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -480,7 +492,20 @@ script = ExtResource( 9 )
 
 [node name="Explosion" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 8 )
-volume_db = 3.972
+volume_db = -15.0
+
+[node name="Loop" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 5 )
+volume_db = 5.0
+autoplay = true
+
+[node name="Success" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 19 )
+pitch_scale = 3.0
+
+[node name="Failure" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 19 )
+pitch_scale = 0.5
 [connection signal="pressed" from="Game/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Game/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="Game/Button3" to="." method="_on_Button3_pressed"]
